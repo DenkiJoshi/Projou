@@ -10,7 +10,7 @@
  * GP3 is MUST do PULLUP 10K OHM,if you use Pickit2/ICD2 is active.
  *
  * Author: denkijoshi
- * Created on 2020/08/03, 19:26
+ * Created on 2020/08/04, 05:37
  */
 
 #include <xc.h>
