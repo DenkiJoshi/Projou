@@ -1,6 +1,6 @@
 /**************************************************************
  * File:   illumination222.c
- * Hard:   Projou(pic10f222) VDD 2.2V-5.0V
+ * Hard:   Projou(pic10f222) VDD 2.0V-5.5V
  **************************************************************
  * port assignment
  * 1 GP0 O RED    6 GP3 I NC
