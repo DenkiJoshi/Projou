@@ -63,8 +63,6 @@ void main(void) {
             }    
         }
     }
-            port_red = on;
-        __delay_ms(20000);
 }
 
 unsigned char f1Fluctuation(){
