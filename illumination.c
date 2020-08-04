@@ -48,8 +48,8 @@ void change(unsigned char, unsigned char, unsigned char, unsigned char);
 void stay(unsigned char, unsigned char, unsigned char, unsigned char);
 
 void main(void) {    
-    TRISA = 0b00000000;//Output
-    ANSELA = 0b00000000;//for Digital I/O
+    TRISA = 0;//Output
+    ANSELA = 0;//for Digital I/O
 
     pwm_red = pwm_green = pwm_blue = 0;
 
