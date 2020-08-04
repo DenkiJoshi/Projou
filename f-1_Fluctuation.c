@@ -40,8 +40,9 @@
 
 //Parameter setting
 unsigned char pwm_red;
-unsigned char f1Fluctuation();
+unsigned char f1Fluctuation(void);
 unsigned int rl = 234;
+void yuragi(unsigned char);
 
 char rnd_xorshift(){
 	rl=rl^(rl<<3);
@@ -52,12 +53,22 @@ char rnd_xorshift(){
 }
 
 void main(void) {
-    TRISA = 0b00000000;//Output
-    ANSELA = 0b00000000;//for Digital I/O
-    while(1){
+    TRISA = 0;//Output
+    ANSELA = 0;//for Digital I/O
+    
+    yuragi(20);
+    port_red = on;
+    __delay_ms(180000);
+    yuragi(10);
+    port_red = on;
+    __delay_ms(70000);
+}
+
+void yuragi(unsigned char outcycle){
+    while(outcycle --){
         pwm_red = f1Fluctuation();
-        unsigned char outcnt = 50;
-        while(outcnt --){
+        unsigned char f1cycle = 50;
+        while(f1cycle --){
             for (unsigned char count=1; count!=255; count++){ //pwm
                 if (count < pwm_red) port_red = on; else port_red = off;
             }    
@@ -65,7 +76,7 @@ void main(void) {
     }
 }
 
-unsigned char f1Fluctuation(){
+unsigned char f1Fluctuation(void){
     static unsigned int x = 256;
     if(x < 128){ x = x + 2 * x * x / 256;} 
     else { x = x - 2 * (256 - x) * (256 - x) / 256;}
