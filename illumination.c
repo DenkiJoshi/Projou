@@ -56,18 +56,18 @@ void main(void) {
     while(1){
         switch(state){
      
-        //Programming change start.(Red,Green,Blue,Time[sec])
+            //Programming change start.(Red,Green,Blue,Time[sec])
 
-    case 0: change(0, 240, 0, 8); break;
-    case 1: change(0, 240, 240, 8); break;
-    case 2: change(0, 0, 240, 8); break;
-    case 3: change(240, 0, 240, 8); break;
-    case 4: change(240, 0, 0, 8); break;
-    case 5: change(240, 240, 0, 8); break;
+            case 0: change(0, 240, 0, 8); break;
+            case 1: change(0, 240, 240, 8); break;
+            case 2: change(0, 0, 240, 8); break;
+            case 3: change(240, 0, 240, 8); break;
+            case 4: change(240, 0, 0, 8); break;
+            case 5: change(240, 240, 0, 8); break;
     
-        //Programming change end.
+            //Programming change end.
         
-        default: state=0;
+            default: state=0;
         }
     }
 }
