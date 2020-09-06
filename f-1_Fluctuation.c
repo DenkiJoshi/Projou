@@ -61,11 +61,9 @@ void main(void) {
     port_blue = off;
     
     yuragi(20);
-    lighton(900);
-    //port_red = on;
-    //__delay_ms(180000);
+    lighton(1200);
     yuragi(10);
-    lighton(300);
+    lighton(400);
 }
 
 void yuragi(unsigned char outcycle){
