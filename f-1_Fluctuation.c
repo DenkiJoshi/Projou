@@ -17,6 +17,8 @@
 
 //LED port define
 #define port_red RA0
+#define port_green RA2
+#define port_blue RA1
 
 //LED polarity setting. Anode common
 #define off 1
@@ -43,6 +45,7 @@ unsigned char pwm_red;
 unsigned char f1Fluctuation(void);
 unsigned int rl = 234;
 void yuragi(unsigned char);
+void lighton(unsigned int);
 
 char rnd_xorshift(){
 	rl=rl^(rl<<3);
@@ -55,13 +58,14 @@ char rnd_xorshift(){
 void main(void) {
     TRISA = 0;//Output
     ANSELA = 0;//for Digital I/O
+    port_blue = off;
     
     yuragi(20);
-    port_red = on;
-    __delay_ms(180000);
+    lighton(900);
+    //port_red = on;
+    //__delay_ms(180000);
     yuragi(10);
-    port_red = on;
-    __delay_ms(70000);
+    lighton(300);
 }
 
 void yuragi(unsigned char outcycle){
@@ -71,8 +75,18 @@ void yuragi(unsigned char outcycle){
         while(f1cycle --){
             for (unsigned char count=1; count!=255; count++){ //pwm
                 if (count < pwm_red) port_red = on; else port_red = off;
+                if (count < 20) port_green = on; else port_green = off;
             }    
         }
+    }
+}
+
+void lighton(unsigned int outcycle){
+    while(outcycle --){
+        for (unsigned char count=1; count!=255; count++){ //pwm
+            port_red = on;
+            if (count < 20) port_green = on; else port_green = off;
+        }    
     }
 }
 
